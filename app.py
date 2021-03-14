@@ -106,10 +106,13 @@ def dropsession():
 
 @app.before_request
 def before_request():
-    g.user=None
-    if 'user' in session:
-        g.user=session['user']
-        
+    try:
+        g.user=None
+        if 'user' in session:
+            g.user=session['user']
+    except (TypeError):
+        pass
+            
     
     
 

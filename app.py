@@ -66,6 +66,7 @@ class Users(db.Model):
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
+    error=None
     if request.method == 'POST':
         session.pop('user' , None)
         username=request.form['username']
@@ -78,7 +79,8 @@ def login():
             else:
                 return redirect(url_for('home')  )
         else :
-            return "ERROR"
+            error="Invalid User"
+            return render_template('login.html' , error = error)
     else:
         return render_template('login.html')
 

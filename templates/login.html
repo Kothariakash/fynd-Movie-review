@@ -44,6 +44,9 @@
 				  <a class="forgot" href="#">Forgot Your Password?</a>
 				  <input type="submit" value="Login">
 			    </form>
+				{% if error %}
+      				<p class="text-danger"><strong>Error:</strong> {{ error }}
+  				{% endif %}
 			   </div>	
 			   <div class="clearfix"> </div>
 		     </div>
